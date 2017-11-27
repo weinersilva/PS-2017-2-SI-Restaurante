@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+	  
+	  <h:head>
+	  		<meta http-equiv="Content-Type" content="text/html; charset-UTF-8" />
+		
+			<title>	
+				<ui:insert name="titulo">Restaurante Manager System</ui:insert>
+			</title>
+		
+			<h:outputStylesheet library="css" name="sistema.css"/>
+	  </h:head>
+	  
+	  <h:body>
+		<p:ajaxStatus styleClass="ajax-status">
+			<f:facet name="start">
+				<h:graphicImage library="images" name="carregando.gif"/>
+			</f:facet>
+			<f:facet name="complete">
+				<h:outputText value=""/>
+			</f:facet>
+		</p:ajaxStatus>
+	
+		<header>
+			<div style="float: left">
+				<h:link>
+					<h:graphicImage library="images" name="logo.png"/>
+				</h:link>
+			</div>
+			
+			<div style="float: right; margin-right:110px">
+				<span style="float: left; height: 60px; line-height:60px; margin-right: 70px; color: #fff; font-weight: bolder; font-size: 17px">
+					Olá usuário!
+				</span>
+				<h:form style="display: inline-block">
+					<p:menubar styleClass="menu-sistema">
+						<p:submenu label="Cadastros">
+							<p:menuitem value="  Funcionários" icon="ui-icon-home "/>
+							<p:separator/>
+							<p:menuitem value="  Clientes" icon="ui-icon-person "/>
+							<p:separator />
+							<p:menuitem value="  Usuários" icon="ui-icon-person "/>
+							<p:separator />
+							<p:menuitem value="  Cardápio" icon="ui-icon-person "/>
+							<p:separator />
+							<p:menuitem value="  Região de Mesas" icon="ui-icon-person "/>
+						</p:submenu>
+						<p:submenu label="Mesas"></p:submenu>
+						<p:submenu label="Delivery">
+							<p:menuitem value="  Pedidos" icon="ui-icon-suitcase "/>
+							<p:separator />
+							<p:menuitem value="  Gerar Rotas" icon="ui-icon-mail-closed "/>
+						</p:submenu>
+						<p:submenu label="Relatórios"></p:submenu>
+						<p:submenu label="Caixa"></p:submenu>
+						<p:menuitem value="Sair"/>
+					</p:menubar>
+				</h:form>
+			</div>
+			<div style="clear:both"></div>
+			
+		</header>
+		
+		
+		
+		<p:layout >
+		    <p:layoutUnit position="west"  size="300" >
+		       <p:panelGrid columns="1" layout="grid">            
+				   <h:link>
+					<h:graphicImage library="images" name="botaocadastro.png"/>
+				</h:link>
+				    <h:link>
+					<h:graphicImage library="images" name="botaocadastro.png"/>
+				</h:link>
+				 <h:link>
+					<h:graphicImage library="images" name="botaocadastro.png"/>
+				</h:link>
+				 <h:link>
+					<h:graphicImage library="images" name="botaocadastro.png"/>
+				</h:link>
+				</p:panelGrid>
+		    </p:layoutUnit>
+		 
+		    <p:layoutUnit position="center" size="400">
+		        <div id="conteudo">
+					<ui:insert name="corpo"></ui:insert>
+				</div>
+		    </p:layoutUnit>
+		    
+		    <p:layoutUnit position="east" size="300">
+		        
+		    </p:layoutUnit>
+		</p:layout>
+		
+		
+		
+		
+		
+		<footer>
+			<p:separator style="margin-top: 20px; border-color: #408080"/>
+			<p class="aw-footer-text">	Copyright &#169; 2017 - <a href="http://www.restaurante.com.br">Restaurante Manager System.</a>	</p>
+		</footer>
+		<script>
+			function configurarMoeda() {
+				$(".moeda").maskMoney({ decimal: ",", thousands: ".", allowZero: true });
+			}
+			
+			$(document).ready(function() {
+				configurarMoeda();
+			});
+		</script>
+		
+	</h:body>
+	  
+</html>
